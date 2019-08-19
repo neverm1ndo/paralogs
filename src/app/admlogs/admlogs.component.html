@@ -1,0 +1,22 @@
+<div class="col-12 pt-0 pl-0">
+  <div class="row">
+    <div class="col-12 restructure2">
+      <fa name="user-secret" class="mr-3"></fa><h6><small>Лог входов в админ панель</small></h6>
+    </div>
+    <div class="overflow-auto w-100" [ngStyle]="{'height': (innerHeight - 94) + 'px'}">
+      <table class="table fulllog">
+        <tbody *ngFor="let line of (loglist | preproc:preproc); let i = index; let l = count">
+          <tr *ngIf="line.process=='<auth/ok>' || line.process=='<auth/error/password>'">
+            <th style="min-width:130px;" scope="row">{{line.date| date:'d MMM yy, HH:mm'}}</th>
+            <td style="max-width:180px;" routerLink="/{{line.player.nickname}}"><u class="text-primary">{{line.player.nickname}}</u></td>
+            <td style="max-width:180px;">
+              <span *ngIf="line.process=='<auth/ok>'" class="text-success">Успешно залогинен</span>
+              <span *ngIf="line.process=='<auth/error/password>'" class="text-danger">Неудачная попытка входа</span>
+            </td>
+            <td><kbd>{{line.player.motion.split(' ')[1] | adms}}</kbd> {{line.player.motion}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

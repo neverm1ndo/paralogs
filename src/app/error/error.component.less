@@ -1,0 +1,41 @@
+.newerror {
+  .toast {
+    opacity: 1;
+    color: #fde2e4!important;
+    background-color: #cc4c58!important;
+    border: none;
+    .alert {
+      &-danger {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      hr {
+        border-top-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+    &-header {
+      color: inherit;
+      background: none;
+      svg {
+        position: relative;
+        height: 20px;
+        display: inline;
+        clear: both;
+        path {
+          fill: #fff;
+        }
+      }
+    }
+    .close {
+      width: 31px;
+      height: 31px;
+      top: 0px;
+      &:after, &:before {
+        height: 15px;
+        width: 2px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+  }
+}

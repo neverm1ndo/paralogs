@@ -1,0 +1,307 @@
+/* You can add global styles to this file, and also import other style files */
+html, body, app-root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+app-geoseries, router-outlet, app-playerlog {
+  width: 100%;
+}
+app-lobby {
+  height: 100%;
+}
+app-error {
+  position: fixed;
+  z-index: 10;
+  top: 50px;
+  right: 15px;
+}
+app-settings {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #343a40 - #101010;
+  z-index: 100;
+  top: 0px;
+  left: 0px;
+}
+kbd {
+  white-space: nowrap;
+}
+::-webkit-scrollbar {
+ background: #343a40 + #aaaaaa;
+ // border-radius: 5px;
+ width: 10px;
+ height: 10px;
+}
+::-webkit-scrollbar-thumb        {
+  background: #343a40 + #505050;
+  border-radius: 5px;
+}
+
+button, input, svg {
+  -webkit-app-region: no-drag;
+}
+.table tbody + tbody {
+  border-top: 0px solid #dee2e6!important;
+}
+.fulllog {
+  margin-top: -1px;
+  thead, tbody {
+    app-logline {
+      .row {
+        width: 90%;
+      }
+    }
+    tr {
+      td, th {
+        font-size: 12px!important;
+        u {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+.restructure {
+  margin-left: -15px;
+  padding-left: 15px;
+  margin-top: -2px;
+  background: #242a30 + #050505;
+  &2 {
+    color: #f8f9fa;
+    // height: 47px;
+    background: #242a30 + #050505;
+    margin-bottom: 0px;
+    margin-top: -2px;
+    fa {
+      float: left;
+      font-size: 23px;
+      position: relative;
+      top: 6px;
+    }
+    h6 {
+      font-weight: 400;
+      line-height: 47px;
+      margin-bottom: 0px;
+    }
+    table {
+      border: none;
+      tr th {
+        color: #f8f9fa;
+      }
+    }
+  }
+  nav {
+    // border-bottom: 1px solid #dfdfdf;
+    position: relative;
+    top: 1px;
+    ul {
+      margin-bottom: 0.6em;
+      li {
+        cursor: pointer;
+      }
+    }
+    .page-link {
+      border: 1px solid #f8f9fa;
+      font-size: 12px;
+      color: #f8f9fa;
+      background-color: transparent;
+      background-image: none;
+      // border-color: #6c757d;
+    }
+    .active {
+      a {
+        background: #f8f9fa!important;
+        color: #242a30!important;
+      }
+    }
+  }
+}
+.close {
+  position: relative;
+  float: right;
+  right: 0px;
+  top: 15px;
+  width: 49px;
+  height: 49px;
+  border-radius: 100%;
+  transition: .4s;
+  &:hover {
+    background: #909090;
+    &:before, &:after {
+      background-color: #eeeeee;
+    }
+  }
+  &:before, &:after {
+    position: absolute;
+    left: 24px;
+    top: 8px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: @lighter;
+    transition: .4s;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+  &:active, &:target, &:focus {
+    outline: none;
+  }
+}
+@dark: #343a40 - #131313;
+@lighter: #343a40 + #131313;
+@theme-text: #aeaeae + @dark;
+.black {
+  color: @theme-text!important;
+  .close {
+    &:before, &:after {
+      background-color: rgba(255, 255, 255, 0.5)!important;
+    }
+    &:hover {
+      background: @lighter;
+    }
+  }
+  .restructure {
+    nav {
+      .page-link {
+        border: 1px solid @lighter!important;
+      }
+      .active {
+        a {
+          background: @lighter!important;
+          color: #eee!important;
+        }
+      }
+    }
+  }
+  .jumbotron, .theme {
+    background: @dark!important;
+  }
+  .jumbotron {
+    a {
+      color: #9ecdff!important;
+    }
+  }
+  .minilogo {
+    path {
+      fill: #eee!important;
+    }
+  }
+  input[type="text"] {
+    background: @dark!important;
+    color: #dfdfdf;
+    border-color: @lighter!important;
+  }
+  button, .theme-button {
+    border-color: @lighter!important;
+  }
+  .alert {
+    &-danger {
+      color: #fde2e4;
+      background-color: #cc4c58;
+      border: none;
+    }
+    &-warning {
+      background-color: #f9ecc2;
+    }
+    &-light {
+      color: #bbbbbb;
+      background-color: #fefefe0a;
+      border: none;
+    }
+  }
+  .text {
+    &-success {
+      color: #68d280!important;
+    }
+    &-danger {
+      color: #ea505f!important;
+    }
+  }
+  .badge {
+    &-warning {
+      color: #000000;
+      background-color: #f9ecc2;
+    }
+    &-info {
+      color: #efefef;
+      background-color: #008398;
+    }
+    &-primary {
+      background-color: #2565ab;
+    }
+  }
+  app-playerlog {
+    a, td, u, th {
+      color: @theme-text!important;
+    }
+    table {
+      th, td {
+        border-top: 1px solid @lighter;
+      }
+    }
+    .loader {
+      background: @dark;
+      &_logo {
+        path {
+          fill: @theme-text;
+        }
+      }
+    }
+  }
+  app-logline {
+    app-geoseries {
+      th, td {
+        border-top: none;
+      }
+      a {
+        border-color: @theme-text;
+        &:hover {
+          border-color: @theme-text;
+        }
+      }
+    }
+    .alert {
+      &-warning {
+        app-geoseries {
+          tr, td, th, a, strong {
+            color: @dark!important;
+          }
+        }
+      }
+    }
+    .logline {
+      &:hover {
+        background: @lighter - #202020;
+      }
+      .colorset {
+        .colory {
+          border: 0px;
+        }
+      }
+    }
+  }
+  div, span, p, u, i, b, a, strong, input, h1, h2, h3, h4, h5, h6 {
+    ::-webkit-selection {
+      background-color: @lighter!important;
+      color: white;
+    }
+    ::selection {
+      background-color: @lighter!important;
+      color: white;
+    }
+  }
+  ::-webkit-scrollbar {
+   background: @lighter;
+   // border-radius: 5px;
+   width: 10px;
+   height: 10px;
+  }
+}

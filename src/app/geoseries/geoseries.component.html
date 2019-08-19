@@ -1,0 +1,46 @@
+<table class="table table-striped table-borderless">
+  <tbody>
+    <tr>
+      <th scope="row">IP</th>
+      <td>{{(geoseries| async)?.ip}}</td>
+    </tr>
+    <tr>
+      <td><strong>Серийный номер AS :</strong> {{(geoseries| async)?.as}}</td>
+      <td>
+        <strong>Серийный номер SS :</strong> {{(geoseries| async)?.ss}}
+      </td>
+    </tr>
+    <tr *ngIf="(geoseries| async)?.hd">
+      <th scope="row">HD</th>
+      <td><a routerLink="/hd:{{(geoseries| async)?.hd}}">{{(geoseries| async)?.hd}}</a></td>
+    </tr>
+    <tr *ngIf="(geoseries| async)?.sm">
+      <th scope="row">SM</th>
+      <td><a routerLink="/sm:{{(geoseries| async)?.sm}}">{{(geoseries| async)?.sm}}</a></td>
+    </tr>
+    <tr>
+      <th scope="row">Язык</th>
+      <td>{{(geoseries| async)?.cc}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Город</th>
+      <td>{{(geoseries| async)?.city}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Провайдер</th>
+      <td>{{(geoseries| async)?.org}}</td>
+    </tr>
+    <tr *ngIf="(geoseries| async)?.s">
+      <th scope="row">Разрешение экрана</th>
+      <td>{{(geoseries| async)?.s}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Группа</th>
+      <td>{{(geoseries| async)?.g}}</td>
+    </tr>
+    <tr>
+      <th scope="row">Версия клиента</th>
+      <td>{{(geoseries| async)?.c}}</td>
+    </tr>
+  </tbody>
+</table>

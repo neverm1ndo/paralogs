@@ -1,0 +1,49 @@
+<div *ngIf="(log.progress | async)==0; else loader">
+  <div class="col-12 overflow-auto" [ngStyle]="{'height': (innerHeight - 48) + 'px'}" *ngIf="loglist && mode=='player'">
+    <app-logline *ngFor="let line of (loglist | sort:player) ; let i = index" [line]="line"></app-logline>
+    <h6 *ngIf="((loglist | sort:player).length==0 && mode=='player') || ((loglist | hd:hdseries).length==0 && mode=='hd') || ((loglist | hd:hdseries).length==0 && mode=='sm')" class="font-weight-light text-center text-secondary mt-2 nofound" [ngStyle]="{'top': ((innerHeight - 120)/2) + 'px'}" role="alert">Совпадений не найдено</h6>
+  </div>
+  <app-processlog *ngIf="loglist && mode=='acheat'"
+    [loglist]="loglist"
+    [process]="preproc"
+    [height]="innerHeight"
+    [@preload]>
+  </app-processlog>
+  <app-admlogs *ngIf="loglist && mode=='adm'"
+    [loglist]="loglist"
+    [preproc]="preproc"
+    [height]="innerHeight">
+  </app-admlogs>
+  <app-fullogs *ngIf="loglist && mode=='full'"
+    [loglist]="loglist"
+    [height]="innerHeight"
+    [page]="page">
+  </app-fullogs>
+  <app-charts *ngIf="loglist && mode=='charts'">
+  </app-charts>
+  <div *ngIf="!loglist" class="alert alert-danger mt-3 mr-3" role="alert">
+    <span><fa name="exclamation-triangle" class="mr-2"></fa><strong>Лог не загружен:</strong> Проверьте статус загрузки лога</span>
+  </div>
+  <app-hdsearch *ngIf="loglist && (mode=='hd' || mode=='sm')" [list]="loglist" [hd]="hdseries" [mode]="mode"d></app-hdsearch>
+</div>
+<ng-template #loader>
+  <div class="col-12 loader">
+    <div class="loader_centrate text-center">
+      <svg class="loader_logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+        <g>
+        	<path d="M13.4,53.5H3.6l9.9-7.8l-0.1-27.9l-9.8-7.3h9.8h13.9c5.3,0,8.7,0.2,10.3,0.6c2.5,0.6,4.5,2,6.2,4.2
+        		c1.7,2.2,2.5,4.9,2.5,8.4c0,2.6-0.5,4.9-1.4,6.7c-1,1.8-2.2,3.2-3.7,4.2c-1.5,1-3,1.7-4.5,2c-2.1,0.4-5.1,0.6-9,0.6h-3.6v16.2H13.4
+        		z M24.1,17.8V30h2.7c3.4,0,5.7-0.2,6.9-0.7c1.2-0.4,2.1-1.2,2.7-2.1c0.7-1,1-2.1,1-3.3c0-1.6-0.5-2.9-1.4-3.9
+        		c-0.9-1-2.1-1.7-3.5-1.9c-1-0.2-3.1-0.3-6.2-0.3H24.1z"/>
+        </g>
+        <g>
+        	<path d="M29.5,53.5l9.9-7.8H49V10.5h10.6v43H29.5z"/>
+        </g>
+      </svg>
+      <svg class="spinner" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg><br>
+    </div>
+  </div>
+</ng-template>

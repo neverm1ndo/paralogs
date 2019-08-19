@@ -1,0 +1,12 @@
+<div class="container-fluid h-100" [class.black]="(options.sets| async)?.black">
+  <div class="row theme">
+    <app-headsearch></app-headsearch>
+  </div>
+  <div class="row h-100 theme">
+    <app-filtercomposer></app-filtercomposer>
+    <div class="playerlog nopadding h-100 d-flex flex-column w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <app-settings *ngIf="options.settings" @settings></app-settings>
+</div>

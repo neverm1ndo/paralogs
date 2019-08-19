@@ -1,0 +1,50 @@
+<div class="pr-0">
+  <div class="">
+    <div class="d-flex restructure overflow-hidden flex-wrap justify-content-between">
+      <nav class="mt-2">
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination pagination-sm float-left">
+          <li class="page-item" [ngClass]="{disabled:pager.currentPage === 1}">
+            <a class="page-link" (click)="setPage(1)">Начало</a>
+          </li>
+          <li class="page-item" *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+            <a class="page-link" (click)="setPage(page)">{{page}}</a>
+          </li>
+          <li class="page-item" [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+            <a class="page-link" (click)="setPage(pager.totalPages)">Конец</a>
+          </li>
+        </ul>
+        <kbd class="ml-3 float-right"><small>Всего в логе: {{loglist.length | number:'1.0-0'}} записей</small></kbd>
+      </nav>
+      <nav class="mt-2 mr-3">
+        <ul class="pagination pagination-sm">
+          <li class="page-item">
+            <a class="page-link" routerLink="/charts:"><fa name="pie-chart"></fa></a>
+          </li>
+          <li class="page-item" [ngClass]="{active: full_viewmode=='full'}">
+            <a class="page-link" (click)="setView('full')"><fa name="columns"></fa></a>
+          </li>
+          <li class="page-item" [ngClass]="{active: full_viewmode=='simple'}">
+            <a class="page-link" (click)="setView('simple')"><fa name="table"></fa></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="overflow-auto tabfull" [ngStyle]="{'height': (innerHeight - 92) + 'px'}">
+      <table *ngIf="full_viewmode=='simple'; else fullview" class="table fulllog table-sm">
+        <tbody>
+          <tr *ngFor="let line of pagedItems; let i = index; let l = count">
+            <th style="min-width:130px;" scope="row">{{line.date| date:'d MMM yy, HH:mm'}}</th>
+            <td style="max-width:220px;">{{line.process}}</td>
+            <td style="max-width:180px;" routerLink="/{{line.player.nickname}}"><u class="text-primary">{{line.player.nickname}}</u></td>
+            <td>{{line.player.motion}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <ng-template #fullview>
+        <div class="col-12 pl-0" *ngFor="let line of pagedItems ; let i = index">
+          <app-logline [line]="line"></app-logline>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

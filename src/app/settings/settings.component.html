@@ -1,0 +1,58 @@
+<div class="container-fluid d-flex flex-wrap align-items-stretch h-100">
+  <div class="d-flex mt-2 mb-2 w-100">
+    <div class="col-12 pl-0 pr-0 h-100">
+      <div class="jumbotron mb-0 h-100">
+        <div class="container">
+          <div class="d-flex justify-content-between">
+            <h3 class="display-4">Настройки</h3>
+            <button type="button" class="close" (click)="options.toggleSettings()" name="button"></button>
+          </div>
+          <p>Настройки для удобства работы с Paralogs</p>
+          <hr>
+          <form [formGroup]="settings" (change)="setup()">
+            <div class="d-flex justify-content-between align-content-center mb-2">
+              <div class="">
+                <h6>Темная тема</h6>
+                <small>Просто отобразит интерфейс в темных тонах</small>
+              </div>
+              <label class="switch align-self-center d-flex" for="checkbox">
+              <input formControlName="black" type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+              </label>
+            </div>
+            <div class="d-flex justify-content-between align-content-center mb-2">
+              <div class="">
+                <h6>Использовать GPU</h6>
+                <small>Ускорит рендеринг списков</small>
+              </div>
+              <label class="switch" for="checkbox1">
+              <input formControlName="gpu" type="checkbox" id="checkbox1" />
+                <div class="slider round"></div>
+              </label>
+            </div>
+            <div class="d-flex justify-content-between align-content-center mb-2">
+              <div class="">
+                <h6>Сворачивать в трей</h6>
+                <small>Прятать Paralogs в трей при закрытии приложения</small>
+              </div>
+              <label class="switch" for="checkbox2">
+              <input formControlName="tray" type="checkbox" id="checkbox2" />
+                <div class="slider round"></div>
+              </label>
+            </div>
+            <div class="d-flex justify-content-between align-content-center mb-2">
+              <div class="">
+                <h6>Отобразить панель разработчика</h6>
+                <small>Для разработчиков</small>
+              </div>
+              <label class="switch" for="checkbox3">
+              <input formControlName="develop" type="checkbox" id="checkbox3" />
+                <div class="slider round"></div>
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
