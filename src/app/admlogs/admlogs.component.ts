@@ -9,7 +9,7 @@ export class AdmlogsComponent implements OnInit {
 
 
   @Input('loglist') loglist : Array<any>;
-  @Input('preproc') preproc : string;
+  @Input('preproc') preprocess : string;
   @Input('height') innerHeight : number;
 
 

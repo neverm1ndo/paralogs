@@ -5,7 +5,7 @@
     </div>
     <div class="overflow-auto w-100" [ngStyle]="{'height': (innerHeight - 94) + 'px'}">
       <table class="table fulllog">
-        <tbody *ngFor="let line of (loglist | preproc:preproc); let i = index; let l = count">
+        <tbody *ngFor="let line of (loglist | preproc:preprocess); let i = index; let l = count">
           <tr *ngIf="line.process=='<auth/ok>' || line.process=='<auth/error/password>'">
             <th style="min-width:130px;" scope="row">{{line.date| date:'d MMM yy, HH:mm'}}</th>
             <td style="max-width:180px;" routerLink="/{{line.player.nickname}}"><u class="text-primary">{{line.player.nickname}}</u></td>
