@@ -24,6 +24,16 @@ import { FileSizePipe } from '../file-size.pipe';
   imports: [
     CommonModule
   ],
+  providers: [
+    SortPipe,
+    DeathReasonsPipe,
+    SleepPipe,
+    BanReasonsPipe,
+    HdPipe,
+    PreprocPipe,
+    AdmsPipe,
+    FileSizePipe
+  ],
   exports: [
     SortPipe,
     DeathReasonsPipe,
@@ -35,4 +45,11 @@ import { FileSizePipe } from '../file-size.pipe';
     FileSizePipe
   ]
 })
-export class PipesModule { }
+export class PipesModule {
+  static forRoot() {
+      return {
+          ngModule: PipesModule,
+          providers: [],
+      };
+   }
+}

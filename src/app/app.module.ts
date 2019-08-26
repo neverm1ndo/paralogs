@@ -58,7 +58,7 @@ import {PipesModule} from './pipes/pipes.module'
     AngularFontAwesomeModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireStorageModule,
-    PipesModule
+    PipesModule.forRoot()
   ],
   providers: [{ provide: StorageBucket, useValue: environment.firebase.storageBucket }],
   bootstrap: [AppComponent]

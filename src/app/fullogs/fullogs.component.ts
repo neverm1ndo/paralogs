@@ -38,7 +38,7 @@ export class FullogsComponent implements OnInit, OnChanges {
       };
     };
   }
-  
+
   constructor(
     public pagination: PaginationService
   ) { }
@@ -55,7 +55,11 @@ export class FullogsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.innerHeight = window.innerHeight;
-    this.full_viewmode = window.localStorage.getItem('view');
+    if (indow.localStorage.getItem('view')) {
+      this.full_viewmode = window.localStorage.getItem('view');
+    } else {
+      this.full_viewmode = 'full';
+    }
     this.setPage(this._page);
   }
   ngOnChanges() {
