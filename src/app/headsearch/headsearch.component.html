@@ -13,8 +13,6 @@
           <path d="M29.5,53.5l9.9-7.8H49V10.5h10.6v43H29.5z"/>
         </g>
       </svg>
-      <!-- <img src="../assets/svg/logo.svg" /> -->
-    <!-- <app-icon type="logo"></app-icon> -->
     </div>
     <div class="col-8 pl-0">
       <form (ngSubmit)="search(currentNickname.value)" autocomplete="on">
@@ -30,7 +28,11 @@
         <div class="d-flex flex-row-reverse">
           <div>
             <span class="btn btn-outline-light btn-file float-right theme-button">
-              <fa name="file" class="mr-2"></fa>Открыть лог <input type="file" (change)="read($event)" multiple>
+              <fa name="file" class="mr-lg-2"></fa>
+              <label for="fileLoader" class="d-none d-lg-inline">
+                Открыть лог
+              </label>
+              <input type="file" name="fileLoader" (change)="read($event)" multiple>
             </span>
           </div>
           <div class="mr-2">

@@ -55,7 +55,7 @@ export class FullogsComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.innerHeight = window.innerHeight;
-    if (indow.localStorage.getItem('view')) {
+    if (window.localStorage.getItem('view')) {
       this.full_viewmode = window.localStorage.getItem('view');
     } else {
       this.full_viewmode = 'full';
