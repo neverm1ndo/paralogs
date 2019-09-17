@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { AngularFireModule } from '@angular/fire';
@@ -27,7 +26,8 @@ import { IconComponent } from './icon/icon.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ErrorComponent } from './error/error.component';
 
-import {PipesModule} from './pipes/pipes.module'
+import { PipesModule } from './pipes/pipes.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import {PipesModule} from './pipes/pipes.module'
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AngularFontAwesomeModule,

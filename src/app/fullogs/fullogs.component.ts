@@ -5,7 +5,8 @@ import { PaginationService } from '../pagination.service';
 @Component({
   selector: 'app-fullogs',
   templateUrl: './fullogs.component.html',
-  styleUrls: ['./fullogs.component.less']
+  styleUrls: ['./fullogs.component.less'],
+  providers:  [ PaginationService ]
 })
 export class FullogsComponent implements OnInit, OnChanges {
 

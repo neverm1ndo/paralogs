@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeadsearchComponent } from './headsearch.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { FileSizePipe } from '../file-size.pipe';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeadsearchComponent', () => {
   let component: HeadsearchComponent;
@@ -8,7 +12,9 @@ describe('HeadsearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeadsearchComponent ]
+      imports: [FormsModule, ReactiveFormsModule, RouterTestingModule],
+      declarations: [ HeadsearchComponent, FileSizePipe ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));

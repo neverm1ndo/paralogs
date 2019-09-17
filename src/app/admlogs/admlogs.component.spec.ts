@@ -2,13 +2,16 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { AdmlogsComponent } from './admlogs.component';
 
+import { PreprocPipe } from '../preproc.pipe';
+import { AdmsPipe } from '../adms.pipe';
+
 describe('AdmlogsComponent', () => {
   let component: AdmlogsComponent;
   let fixture: ComponentFixture<AdmlogsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdmlogsComponent ],
+      declarations: [ AdmlogsComponent, PreprocPipe, AdmsPipe ],
       schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
